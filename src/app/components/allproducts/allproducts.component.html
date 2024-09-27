@@ -1,0 +1,36 @@
+<div class="p-4">
+  <h4 class="font-bold">
+    Check Our Latest Products
+  </h4>
+  <div class=" h-64  bg-gray-200 mb-8 flex justify-center items-center relative">
+    <!-- Left arrow -->
+    <button (click)="prevSlide()" class="absolute left-0 px-4 py-2 text-black text-5xl rounded">
+      &#8656;
+    </button>
+  
+    <!-- Image Slider -->
+    <div class="w-full flex justify-center items-center overflow-hidden">
+      <img [src]="images[currentIndex]" alt="Product Image" class="h-56 w-44  mix-blend-multiply" />
+    </div>
+    
+  
+    <!-- Right arrow -->
+    <button (click)="nextSlide()" class="absolute right-0 px-4 py-2 text-black text-5xl  rounded">
+      &#8658;
+    </button>
+  </div>
+  
+  <h4 class="font-bold">
+    All Products
+  </h4>
+  <div class="grid grid-cols-4 gap-4">
+    
+    <div *ngFor="let product of products" class="p-4 flex flex-col items-center border-slate-300 border-2  border-solid">
+      <button (click)="goToProductDetail(product.id)">
+      <img [src]="product.image" alt="{{product.title}}" class="w-full h-44 object-contain mb-4">
+      <h2>{{ product.title }}</h2>
+      <p class="font-bold">${{ product.price }}</p>
+    </button>
+    </div>
+  </div>
+</div>

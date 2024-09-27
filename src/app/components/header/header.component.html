@@ -1,0 +1,13 @@
+<div class="flex justify-between items-center pr-4 border-b border-slate-800 bg-black h-16 w-full">
+    <h1 class="text-xl font-bold">
+        <button (click)="moveToHome()">
+        <img src="logo.png" alt="logo" class="h-14 w-44">
+    </button>
+    </h1>
+    <button class="px-4 py-2 rounded" (click)="moveToCart()">
+        <span class="absolute top-1 right-6 bg-[rgb(191,206,49)] text-black text-xs font-bold rounded-full px-1">
+            {{ itemCount }}
+          </span>
+       <img src="cart.jpg" alt="cart" class="h-10">
+    </button>
+</div>

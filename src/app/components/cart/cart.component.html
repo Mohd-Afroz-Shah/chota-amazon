@@ -1,0 +1,29 @@
+<div class="container mx-auto p-8">
+    <h1 class="text-2xl font-bold mb-8">Your Cart</h1>
+
+    <!-- Display cart items -->
+    <div *ngFor="let product of cartItems" class="flex items-center justify-between mb-4 border-b pb-4">
+        <div class="flex items-center">
+            <img [src]="product.image" alt="{{ product.title }}" class="w-32 h-auto mr-4" />
+            <div>
+                <h2 class="text-xl font-semibold">{{ product.title }}</h2>
+                <p class="text-sm text-gray-600">Price: ${{ product.price }}</p>
+            </div>
+        </div>
+
+        <!-- Remove button -->
+        <button class="bg-red-500 text-white px-4 py-2" (click)="removeFromCart(product.id)">
+            Remove
+        </button>
+    </div>
+
+    <!-- If cart is empty -->
+    <div *ngIf="cartItems.length === 0" class="text-center mt-8">
+        <p>Your cart is empty.</p>
+    </div>
+
+    <!-- Place Order button -->
+    <div class="text-center mt-8" *ngIf="cartItems.length > 0">
+        <button class="bg-blue-500 text-white px-6 py-2" (click)="placeOrder()">Place Order</button>
+    </div>
+</div>
